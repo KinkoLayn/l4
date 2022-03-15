@@ -15,6 +15,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lime,
       ),
+      // Если Вы хотите сократить количество классов, предлагаю сделать это здесь.
+      // Вместо MyHomePage возвращать соответствующие виджеты
       home: const MyHomePage(title: 'Список элементов степени двойки'),
     );
   }
@@ -29,26 +31,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-    @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Список элементов степени двойки'),
+      appBar: AppBar(
+        title: const Text('Список элементов степени двойки'),
       ),
-      body: ListView.builder(
-        itemBuilder: (context, index) {
-          return Column (
-            children: [
-              Container(
-                margin: const EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 10),
-                child: (
-              Text('2 ^ $index = ${pow(2,index)}')),
-              ),
-              const Divider() 
-            ],
-          );
-        }
-        ),
-      );
+      body: ListView.builder(itemBuilder: (context, index) {
+        return Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(
+                  left: 10, top: 10, right: 10, bottom: 10),
+              child: (Text('2 ^ $index = ${pow(2, index)}')),
+            ),
+            const Divider()
+          ],
+        );
+      }),
+    );
   }
 }
